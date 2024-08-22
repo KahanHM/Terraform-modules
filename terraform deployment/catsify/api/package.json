@@ -1,0 +1,56 @@
+{
+  "name": "catsify",
+  "version": "1.0.0",
+  "author": {
+    "name": "Wassim Chegham",
+    "email": "github@wassim.dev"
+  },
+  "bugs": {
+    "url": "https://github.com/manekinekko/catsify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manekinekko/catsify.git"
+  },
+  "keywords": [
+    "azure",
+    "bazel",
+    "rust",
+    "wasm",
+    "serverless",
+    "cloud",
+    "javascript"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "//FUNC--": "//",
+    "func:build": "bazelisk build //func:func",
+    "func:build:prod": "npm run func:build && npm prune --production",
+    "func:watch": "ibazel build //func:func",
+    "func:start:host": "func start",
+    "//WASM--": "//",
+    "wasm:build": "bazelisk build //rust:generator_wasm",
+    "//PUBLIC--": "//",
+    "prestart": "npm-run-all wasm:build func:build",
+    "start": "npm-run-all --parallel func:start:host func:watch",
+    "build": "npm-run-all func:build",
+    "query": "bazelisk query --noimplicit_deps 'deps(//...)' --output graph | dot -Tpng > docs/graph.png",
+    "test": "bazelisk run //rust:generator_wasm",
+    "clean": "bazelisk clean --expunge && rimraf dist"
+  },
+  "description": "",
+  "devDependencies": {
+    "@azure/functions": "^1.2.0",
+    "@bazel/bazelisk": "^1.4.0",
+    "@bazel/ibazel": "^0.13.1",
+    "@bazel/typescript": "^1.6.1",
+    "@types/node": "^13.13.9",
+    "azure-functions-core-tools": "^2.7.2508",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.3.3"
+  },
+  "engines": {
+    "node": "^12"
+  }
+}
