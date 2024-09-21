@@ -1,8 +1,16 @@
-# Terraform-modules
-this is sample modules for some services
+# Terraform-modules for reusabilty
 
-#create a folder name modules
 
-#inside the folder copy paste the module 
+## modules 
+- ***Ec2***
+- ***s3***
+- ***vpc***
+- ***iam***
+- ***sg***
+---
 
-#use it
+###### steps for the setup
+- create a folder name modules
+- inside the folder copy paste the module
+- use it
+> if you need any help just mention in the command 
