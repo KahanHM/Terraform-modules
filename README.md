@@ -13,4 +13,5 @@
 - create a folder name modules
 - inside the folder copy paste the module
 - use it
-> if you need any help just mention in the command 
+> if you need any help just mention in the command
+> understand the code before apply 
